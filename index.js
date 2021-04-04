@@ -39,20 +39,20 @@
 // emitter.emit('running')
 
 
-const EventEmiter = require('events')
 
-const emitter = new EventEmiter()
 
-emitter.on('starting', ({period, text}) => {
+
+const School = require('./school')
+
+
+const school = new School()
+school.started()
+
+school.on('starting', ({period, text}) => {
     console.log(`i have to start because ${period} ${text}`)
 })
 
-setTimeout(() => {
-    emitter.emit('starting', {
-        period: 'its',
-        text: 'friday'
-    })
-}, 1000)
+school.started()
 
 console.log('hello')
 
